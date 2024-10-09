@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "Viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Tracker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <header class="text-center mb-4">
+                    <h1 class="display-4">Stock Tracker</h1>
+                    <p class="lead">Check the latest stock prices in real time</p>
+                </header>
+                <div class="form-group text-center">
+                    <label for="stock-symbol" class="sr-only">Enter Stock Symbol</label>
+                    <input type="text" class="form-control" id="stock-symbol" placeholder="Enter stock symbol">
+                    <button class="btn btn-primary btn-lg mt-3" id="fetch-stock">Get Stock Data</button>
+
+                    <div id="loading-spinner" class="spinner-border text-primary d-none" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    
+                </div>
+
+                <div id="stock-info" class="stock-info mt-5 card d-none">
+                    <div class="card-body">
+                        <h5 class="card-title">Stock Details for <span id="stock-symbol-display"></span></h5>
+                        <p class="card-text"><strong>Last Refreshed: </strong><span id="last-refreshed"></span></p>
+<!--                        <p class="card-text"><strong>Latest Time (Pacific)</strong><span id="latest-time-pacific"></span></p>-->
+                        <p class="card-text"><strong>Open: </strong> <span id="open"></span></p>
+                        <p class="card-text"><strong>High:</strong> <span id="high"></span></p>
+                        <p class="card-text"><strong>Low:</strong> <span id="low"></span></p>
+                        <p class="card-text"><strong>Close:</strong> <span id="close"></span></p>
+                        <p class="card-text"><strong>Volume:</strong> <span id="volume"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center mt-5">
+            <p>&copy; 2024 Stock Tracker</p>
+        </footer>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Link to JavaScript file -->
+    <script src="app.js"></script>
+
+
+
+</body>
+</html>
