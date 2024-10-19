@@ -1,7 +1,7 @@
 body{
     font-family: 'Montserrat';
-    font-size: 22px;
-    background-color: #fffefe;
+    font-size: 20px;
+    background-color: #fafbfc;
     color: #000000;
     text-align: center;
     margin: 20px;
@@ -10,7 +10,7 @@ body{
 #stock-info {
     margin-top: 20px;
     padding: 10px;
-    background-color: white;
+    background-color: rgb(235, 228, 228);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
