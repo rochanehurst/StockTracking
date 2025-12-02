@@ -5,50 +5,37 @@ StockTracking Application Entry Point
 
 import os
 import sys
-from app.app import app
-from config import get_config
+
+# Add the app directory to the path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'app'))
+
+from app import app
 
 def main():
     """Main application entry point"""
     
-    # Get configuration
-    config = get_config()
-    
-    # Set Flask configuration
-    app.config.from_object(config)
-    
     # Validate environment
     if not os.getenv('ALPHA_VANTAGE_API_KEY'):
-        print("⚠️  Warning: ALPHA_VANTAGE_API_KEY not found in environment variables")
-        print("   Please set your Alpha Vantage API key in a .env file")
-        print("   Get a free API key at: https://www.alphavantage.co/support/#api-key")
+        print("⚠️  Warning: ALPHA_VANTAGE_API_KEY not found")
+        print("   Please set your Alpha Vantage API key in .env file")
         print()
     
-    # Print startup information
     print("🚀 Starting StockTracking Application...")
-    print(f"   Environment: {os.getenv('FLASK_ENV', 'development')}")
-    print(f"   Debug Mode: {config.DEBUG}")
     print(f"   API Key: {'✅ Set' if os.getenv('ALPHA_VANTAGE_API_KEY') else '❌ Missing'}")
     print()
     print("📱 Frontend: http://localhost:5001")
-    print("🔧 API Docs: http://localhost:5001/")
+    print("🔧 API: http://localhost:5001/api")
     print()
-    print("Press Ctrl+C to stop the server")
+    print("Press Ctrl+C to stop")
     print("-" * 50)
     
     try:
-        # Run the application
-        app.run(
-            host='0.0.0.0',
-            port=5001,
-            debug=config.DEBUG,
-            use_reloader=config.DEBUG
-        )
+        app.run(host='0.0.0.0', port=5001, debug=True)
     except KeyboardInterrupt:
-        print("\n👋 Shutting down StockTracking...")
+        print("\n👋 Shutting down...")
         sys.exit(0)
     except Exception as e:
-        print(f"❌ Error starting application: {e}")
+        print(f"❌ Error: {e}")
         sys.exit(1)
 
 if __name__ == '__main__':

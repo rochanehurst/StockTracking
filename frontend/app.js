@@ -109,7 +109,7 @@ class StockTracker {
         try {
             console.log(`📊 Fetching data for ${symbol}...`);
             
-            const response = await fetch(`${this.apiBaseUrl}/stock/${symbol}`);
+            const response = await fetch(`${this.apiBaseUrl}/api/stock/${symbol}`);
             const data = await response.json();
 
             if (!response.ok) {
@@ -575,7 +575,7 @@ class StockTracker {
     async fetchStockDataForChart(symbol) {
         try {
             console.log(`📊 Fetching chart data for ${symbol}...`);
-            const response = await fetch(`${this.apiBaseUrl}/stock/${symbol}`);
+            const response = await fetch(`${this.apiBaseUrl}/api/stock/${symbol}`);
             const data = await response.json();
             
             if (!response.ok || data.error) {
@@ -640,24 +640,19 @@ class StockTracker {
             return gradient;
         });
 
-        // Chart configuration
+        // Chart configuration - BAR CHART for stock comparison
         const config = {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: labels,
                 datasets: [{
                     label: 'Current Price ($)',
                     data: prices,
+                    backgroundColor: colors.map(color => color.replace(')', ', 0.8)').replace('rgb', 'rgba')),
                     borderColor: colors,
-                    backgroundColor: backgrounds,
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: colors,
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHoverRadius: 8
+                    borderWidth: 2,
+                    borderRadius: 8,
+                    borderSkipped: false
                 }]
             },
             options: {

@@ -22,11 +22,11 @@
 /* Dark mode variables */
 [data-theme="dark"] {
     --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
+    --text-secondary: #e5e7eb;
+    --bg-primary: #1f2937;
+    --bg-secondary: #111827;
     --bg-tertiary: #374151;
-    --border-color: #374151;
+    --border-color: #4b5563;
 }
 
 * {
@@ -341,6 +341,33 @@ body {
 footer {
     border-top: 1px solid var(--border-color);
     background: var(--bg-primary);
+}
+
+/* ===== DARK MODE SPECIFIC FIXES ===== */
+[data-theme="dark"] .form-label,
+[data-theme="dark"] .stat-item label,
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] small.text-muted {
+    color: #e5e7eb !important;
+}
+
+[data-theme="dark"] .card-body,
+[data-theme="dark"] .stat-item,
+[data-theme="dark"] .fs-5 {
+    color: #f9fafb;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .lead {
+    color: #d1d5db !important;
 }
 
 /* ===== ACCESSIBILITY ===== */

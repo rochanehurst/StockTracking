@@ -1,5 +1,4 @@
-from flask import Flask
+"""StockTracking Application Package"""
+from .app import app
 
-app = Flask(__name__)
-
-from app import app
+__all__ = ['app']
